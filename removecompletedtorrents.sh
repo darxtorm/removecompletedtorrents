@@ -8,9 +8,8 @@ echo "Getting torrent list from transmission"
 
 for TORRENTID in $TORRENTLIST
 do
-## found these too noisy for output
-#echo "* * * * * Operations on torrent ID $TORRENTID starting. * * * * *"
 
+# grab a bunch of info about the torrent
 NAME_IRREGARDLESS=`transmission-remote --torrent $TORRENTID --info | grep "Name:"`
 DL_IRREGARDLESS=`transmission-remote --torrent $TORRENTID --info | grep "Percent Done:"`
 DL_COMPLETED=`transmission-remote --torrent $TORRENTID --info | grep "Percent Done: 100%"`
@@ -20,16 +19,14 @@ STATE_IRREGARDLESS=`transmission-remote --torrent $TORRENTID --info | grep "Stat
 STATE_STOPPED=`transmission-remote --torrent $TORRENTID --info | grep "State: Finished"`
 echo "#$TORRENTID $NAME_IRREGARDLESS"
 
+# check if the torrent is complete and is in finished state and remove
 if [ "$DL_COMPLETED" != "" ] && [ "$STATE_STOPPED" != "" ]; then
 echo "Torrent #$TORRENTID is $DL_COMPLETED and $STATE_STOPPED."
 echo "Removing torrent #$TORRENTID from list."
 transmission-remote --torrent $TORRENTID --remove
-#echo "JOKES NOT REALLY, UNCOMMENT LINE ABOVE TO GIVE ME TEETH"
 
 else
 echo "Torrent #$TORRENTID is not completed. $DL_IRREGARDLESS $STATE_IRREGARDLESS"
 fi
 
-## found these too noisy for output
-#echo "* * * * * Operations on torrent ID $TORRENTID completed. * * * * *"
 done
