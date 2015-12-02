@@ -23,8 +23,8 @@ echo "#$TORRENTID $NAME_IRREGARDLESS"
 if [ "$DL_COMPLETED" != "" ] && [ "$STATE_STOPPED" != "" ]; then
 echo "Torrent #$TORRENTID is $DL_COMPLETED and $STATE_STOPPED."
 echo "Removing torrent #$TORRENTID from list."
-#transmission-remote --torrent $TORRENTID --remove
-echo "JOKES NOT REALLY, UNCOMMENT LINE ABOVE TO GIVE ME TEETH"
+transmission-remote --torrent $TORRENTID --remove
+#echo "JOKES NOT REALLY, UNCOMMENT LINE ABOVE TO GIVE ME TEETH"
 
 else
 echo "Torrent #$TORRENTID is not completed. $DL_IRREGARDLESS $STATE_IRREGARDLESS"
