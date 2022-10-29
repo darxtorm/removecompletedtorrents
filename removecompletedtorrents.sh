@@ -1,5 +1,5 @@
-#!/bin/sh
-## Made by JD from these two scripts, good for outputting results to a file as a scheduled task
+#!/bin/bash
+## Made by darxtorm from these two scripts, good for outputting results to a file as a scheduled task
 ## lacks the --auth=user:password as i don't use auth on my server
 ## http://goedonthouden.com/2013/04/21/transmission-daemon-auto-remove-torrents/
 ## https://gist.github.com/bulljit/791609
